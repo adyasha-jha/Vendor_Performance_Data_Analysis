@@ -34,15 +34,11 @@ Comprehensive examination of vendor database tables to identify key variables, u
 - **Freight Cost:** Huge variation, from $0.09 to $257,032.07, suggests logistics inefficiencies or bulk shipments.
 - **Stock Turnover:** Ranges from 0 to 274.5, implying some products sell extremely fast while others remain in stock indefinitely. Value more than 1 indicates that sold quantity for that product is higher than purchased quantity due to either sales being fulfilled from older stock.
 
-![Distribution Analysis](outputs/figures/distribution_plots.png)
-
-![Boxplot Analysis](outputs/figures/boxplot_analysis.png)
 
 ---
 
 #### 🔗 Correlation Insights
 
-![Correlation Heatmap](outputs/figures/correlation_heatmap.png)
 
 **Key Correlations Discovered:**
 
@@ -60,7 +56,6 @@ Comprehensive examination of vendor database tables to identify key variables, u
 
 #### 🏆 Which Vendors and Brands Demonstrate the Highest Sales Performance?
 
-![Vendor Performance](outputs/figures/vendor_brand_performance.png)
 
 **Top Performing Vendors:**
 - **MARTINETTI COMPANIES** leads with the highest transaction volume
@@ -81,7 +76,6 @@ Comprehensive examination of vendor database tables to identify key variables, u
 - Assessment of financial dependency on key suppliers
 - Risk evaluation for vendor concentration
 
-![Purchase Distribution](outputs/figures/purchase_dollar_distribution.png)
 
 ---
 
@@ -116,7 +110,6 @@ Comprehensive examination of vendor database tables to identify key variables, u
 - Larger orders provide significant per-unit savings
 - Must consider storage capacity and product shelf life
 
-![Bulk Pricing Analysis](outputs/figures/bulk_pricing.png)
 
 ---
 
@@ -129,7 +122,6 @@ Comprehensive examination of vendor database tables to identify key variables, u
 - Highlighted products with extended holding periods
 - Assessed impact on working capital
 
-![Stock Turnover Analysis](outputs/figures/stock_turnover_by_vendor.png)
 
 **Key Insights:**
 - Some vendors show stock turnover ratios close to 0, indicating minimal movement
