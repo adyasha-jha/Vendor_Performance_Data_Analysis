@@ -19,17 +19,6 @@ The project aims to identify:
 
 Place all downloaded files from this link into the `data/` folder of your repository before running the scripts.
 
----
-
-## 🏗️ Repository Structure
-
-├── data/ # Raw dataset CSV files
-├── Vendor_Perfomance_Analysis.ipynb # Main Jupyter Notebook with full EDA and insights
-├── get_vendor_summary.py # Script to generate vendor summary metrics from DB
-├── ingestion_db.py # Script to ingest CSV data into SQLite database
-├── data.db # SQLite database (auto-created after ingestion)
-├── logs/ # Logging files for ETL operations
-└── README.md # Project documentation
 
 
 ---
