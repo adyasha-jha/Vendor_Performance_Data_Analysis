@@ -82,7 +82,7 @@ Please download the dataset from the above link and place all CSV files inside t
 ![Vendor Performance Overview](Correlation_Heatmap.png)
 
 ### Impact of Bulk Purchasing on Unit Price
-![Bulk Purchase Summary](bulk_puchase_vs_unit_price.png)
+![Bulk Purchase Summary](bulk_purchase_vs_unit_price.png)
 
 ### Vendor Ranking by Sales
 ![Vendor Ranking by Sales and Brands](vendors_ranking(Sales&Brand).png)
@@ -113,21 +113,6 @@ Please download the dataset from the above link and place all CSV files inside t
 | **Visualization** | Jupyter Notebook |
 | **Logging** | Python Logging Module |
 
----
-
-## 🧑‍💻 Author
-
-**Adyasha Jha**  
-📧 [your.email@example.com]  
-🔗 [GitHub Profile](https://github.com/<your-username>)
-
----
-
-## 🪪 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
 
 ## 🧾 Summary
 
