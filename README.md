@@ -213,26 +213,6 @@ Brands exhibiting **lower sales performance but higher profit margins** represen
 
 ---
 
-# 🧾 Vendor & Inventory Analytics Dashboard
-
-A comprehensive **data analytics project** designed to analyze vendor performance, inventory efficiency, and purchase/sales trends using SQL, Python, and advanced statistical methods.  
-This project demonstrates **real-world business intelligence** techniques with interactive dashboards and predictive analytics capabilities.
-
----
-
-## 📈 Future Enhancements
-
-- 🔮 **Time-Series Forecasting:** Predict future demand patterns using ARIMA or Prophet  
-- 🤖 **Machine Learning Models:** Vendor risk scoring and classification  
-- 📊 **Interactive Dashboard:** Real-time metrics using Plotly/Dash or Streamlit  
-- 🔗 **ERP Integration:** Automated data pipeline from enterprise systems  
-- 📦 **Predictive Analytics:** Inventory optimization using ML algorithms  
-- 🧩 **Supplier Segmentation:** ABC analysis and clustering  
-- 🌐 **API Development:** RESTful API for metric queries  
-- 📧 **Automated Reporting:** Scheduled email reports with key insights  
-
----
-
 ## 🛠️ Technical Details
 
 ### 🗄️ Database Schema
@@ -248,26 +228,3 @@ The project uses an **SQLite database** with the following core tables:
 | `inventory` | Stock levels |
 
 ---
-
-### 🧮 SQL Queries
-
-Key SQL operations include:
-
-- Complex **joins** across multiple tables  
-- **Aggregate functions** for KPI calculations  
-- **Window functions** for ranking and percentiles  
-- **CTEs (Common Table Expressions)** for analytical pipelines  
-
-Example SQL Snippet:
-```sql
-WITH vendor_stats AS (
-    SELECT 
-        v.VendorName,
-        SUM(s.SalesAmount) AS TotalSales,
-        RANK() OVER (ORDER BY SUM(s.SalesAmount) DESC) AS SalesRank
-    FROM sales s
-    JOIN vendors v ON s.VendorID = v.VendorID
-    GROUP BY v.VendorName
-)
-SELECT * FROM vendor_stats WHERE SalesRank <= 10;
-
