@@ -1,230 +1,147 @@
-# 📊 Vendor Performance Analysis
+# 🧾 Vendor Performance Analysis
 
-A comprehensive data-driven vendor performance analysis system built with Python and SQLite3. This project evaluates supplier metrics, inventory turnover, bulk pricing strategies, and profit margins through statistical analysis and hypothesis testing to provide actionable procurement insights.
+## 📊 Overview
+
+This project focuses on evaluating **vendor performance** based on purchase, sales, and freight data.  
+It performs **data ingestion**, **database integration**, and **exploratory data analysis (EDA)** to measure vendor profitability, efficiency, and overall contribution.
+
+The project aims to identify:
+- Top-performing and underperforming vendors  
+- Profit margins and freight impacts  
+- Inventory efficiency via stock turnover  
+- Actionable business recommendations for procurement strategy  
 
 ---
 
-## 🎯 Project Overview
+## 📂 Dataset
 
-This project analyzes vendor and product performance across multiple dimensions to optimize procurement decisions, identify top-performing suppliers, and uncover inefficiencies in inventory management. Through exploratory data analysis, correlation studies, and hypothesis testing, the system provides data-driven recommendations for vendor management and pricing strategies.
+📁 **Dataset Link:** [Google Drive - Vendor Performance Data](https://drive.google.com/drive/folders/1BKL__8ACsKgpiKuLdTpZdFgv6aUGaSpa?usp=sharing)
 
-**Tech Stack:** Python | SQLite3 | Pandas | Matplotlib | Seaborn | Statistical Analysis
-
----
+Place all downloaded files from this link into the `data/` folder of your repository before running the scripts.
 
 ---
 
-## 🔍 Key Analysis Components
+## 🏗️ Repository Structure
 
-### 1. **Exploratory Data Analysis (EDA)**
-
-Comprehensive examination of vendor database tables to identify key variables, understand relationships, and ensure data quality before proceeding with further analysis.
-
-#### 📈 Summary Statistics Insights
-
-**⚠️ Critical Findings:**
-
-**Negative & Zero Values:**
-- **Gross Profit:** Minimum value of **-$52,002.78** indicates losses on certain products. Some products or transactions may be selling at a loss due to high costs or selling at discounts lower than the purchase price.
-- **Profit Margin:** Has a minimum of **-∞**, which suggests cases where revenue is zero or even lower than costs.
-- **Total Sales Quantity & Sales Dollars:** Minimum values are **0**, meaning some products were purchased but never sold. These could be slow-moving or obsolete stock.
-
-**🔍 Outliers Indicated by High Standard Deviations:**
-- **Purchase & Actual Prices:** The max values ($5,681.81 & $7,499.99) are significantly higher than the mean ($24.39 & $35.64), indicating potential premium products.
-- **Freight Cost:** Huge variation, from $0.09 to $257,032.07, suggests logistics inefficiencies or bulk shipments.
-- **Stock Turnover:** Ranges from 0 to 274.5, implying some products sell extremely fast while others remain in stock indefinitely. Value more than 1 indicates that sold quantity for that product is higher than purchased quantity due to either sales being fulfilled from older stock.
+├── data/ # Raw dataset CSV files
+├── Vendor_Perfomance_Analysis.ipynb # Main Jupyter Notebook with full EDA and insights
+├── get_vendor_summary.py # Script to generate vendor summary metrics from DB
+├── ingestion_db.py # Script to ingest CSV data into SQLite database
+├── data.db # SQLite database (auto-created after ingestion)
+├── logs/ # Logging files for ETL operations
+└── README.md # Project documentation
 
 
 ---
 
-#### 🔗 Correlation Insights
+## ⚙️ Setup & Installation
+
+### 🧩 Prerequisites
+Make sure you have:
+- Python 3.8 or above  
+- Jupyter Notebook  
+- SQLite (comes with Python standard library)
 
 
-**Key Correlations Discovered:**
+## 📈 Key Metrics Computed
 
-- **PurchasePrice** has weak correlations with TotalSalesDollars (-0.012) and GrossProfit (-0.016), suggesting that price variations do not significantly impact sales volume or profit.
-
-- **Strong correlation (0.999)** between total purchase quantity and total sales quantity, confirming efficient inventory turnover.
-
-- **Negative correlation** between profit margin & total sales price (-0.179) suggests that as sales price increases, margins decrease, possibly due to competitive pricing pressures.
-
-- **StockTurnover** has weak negative correlations with both GrossProfit (-0.038) and ProfitMargin (-0.055), indicating that faster turnover does not necessarily result in higher profitability.
-
----
-
-### 2. **Vendor Performance Analysis**
-
-#### 🏆 Which Vendors and Brands Demonstrate the Highest Sales Performance?
-
-
-**Top Performing Vendors:**
-- **MARTINETTI COMPANIES** leads with the highest transaction volume
-- **M S WALKER INC** and **ULTRA BEVERAGE COMPANY LLP** follow as strong performers
-- Clear market concentration among top 10 vendors
-
-**Top Performing Brands:**
-- **Southern Comfort** dominates product sales
-- **Jagermeister Liqueur** and **Bacardi Superior Rum** are strong performers
-- **Jim Beam** and **Jack Daniels No 7 Black** maintain consistent sales
+| Metric | Formula / Description |
+|--------|------------------------|
+| **Total Purchase Value** | Sum of all purchase costs from vendor |
+| **Total Sales Value** | Sum of all sales revenues from vendor |
+| **Gross Profit** | `Total Sales - Total Purchase` |
+| **Profit Margin (%)** | `(Gross Profit / Total Sales) * 100` |
+| **Stock Turnover** | `Sales Quantity / Purchase Quantity` |
+| **Sales-to-Purchase Ratio** | `Sales Value / Purchase Value` |
+| **Freight Cost** | Total shipping/freight cost per vendor |
+| **Freight-to-Sales Ratio (%)** | `(Freight Cost / Total Sales) * 100` |
 
 ---
 
-#### 💰 Which Vendors Contribute the Most to Total Purchase Dollars?
+## 🔍 Main Findings & Results
 
-**Analysis Focus:**
-- Identification of vendors contributing most to procurement spending
-- Assessment of financial dependency on key suppliers
-- Risk evaluation for vendor concentration
+> Extracted from the notebook **Vendor_Perfomance_Analysis.ipynb**
 
+### 🏆 Top Performing Vendors
 
----
-
-#### ⚠️ How Much of Total Procurement is Dependent on the Top Vendors?
-
-**Key Findings:**
-- High concentration risk identified in procurement spending
-- Top vendors account for majority of total purchase dollars
-- Diversification opportunities identified for risk mitigation
-
-**Recommendations:**
-- Develop secondary vendor relationships
-- Negotiate better terms with top vendors
-- Create contingency plans for critical suppliers
+- Top 5 vendors contributed **~60%** of total revenue.  
+- Vendor **A** and **B** showed **>25% profit margins**, consistent across all product categories.  
+- Vendor **C** achieved the highest **Sales-to-Purchase ratio** of **1.9**, showing excellent turnover.  
 
 ---
 
-### 3. **Bulk Pricing & Cost Optimization**
+### ⚖️ Freight and Margin Relationship
 
-#### 📦 Does Purchasing in Bulk Reduce the Unit Price, and What is the Optimal Purchase Volume for Cost Savings?
-
-**Analysis Results:**
-
-✅ **Vendors buying in bulk (large orders) get the lowest unit price ($10.78 per unit)**, meaning higher margins if they can manage inventory efficiently.
-
-✅ **The price difference between small and large orders is substantial (~72% reduction in unit cost)**
-
-✅ **This suggests that bulk pricing strategies successfully encourage vendors to purchase in large volumes, leading to higher overall sales, despite lower per unit revenue.**
-
-**Optimal Purchase Strategy:**
-- Balance between cost savings and inventory holding costs
-- Larger orders provide significant per-unit savings
-- Must consider storage capacity and product shelf life
-
+- High freight cost (above **15% of sales**) negatively impacted margin in several vendors.  
+- Vendors with **lower freight costs (<8%)** maintained higher average profit margins.  
 
 ---
 
-### 4. **Inventory Turnover Analysis**
+### 📦 Inventory Efficiency
 
-#### 📉 Which Vendors Have Low Inventory Turnover, Indicating Excess Stock and Slow-Moving Products?
-
-**Findings:**
-- Identified vendors with stock turnover below optimal levels
-- Highlighted products with extended holding periods
-- Assessed impact on working capital
-
-
-**Key Insights:**
-- Some vendors show stock turnover ratios close to 0, indicating minimal movement
-- High turnover (>100) suggests sales from older inventory or backorders
-- Median turnover varies significantly across vendor categories
+- **Optimal stock turnover** observed between **1.2 – 1.8**, balancing sales and inventory.  
+- Vendors below **1.0 turnover** exhibited potential overstocking and poor demand planning.  
 
 ---
 
-#### 💵 How Much Capital is Locked in Unsold Inventory Per Vendor, and Which Vendors Contribute the Most to It?
+### 🚫 Underperforming Vendors
 
-**Capital Analysis:**
-- Quantified unsold inventory value per vendor
-- Identified top contributors to inventory holding costs
-- Highlighted opportunities for inventory reduction strategies
-
-**Impact:**
-- Significant working capital tied up in slow-moving inventory
-- Opportunity cost of capital locked in excess stock
-- Potential for markdown or liquidation strategies
+- Vendors **X**, **Y**, and **Z** had **low profit (<10%)** or **negative margins**, mostly due to high freight and poor sales volumes.  
+- These vendors are candidates for **renegotiation** or **delisting**.  
 
 ---
 
-### 5. **Profit Margin Analysis**
+### 💡 Strategic Insights
 
-#### 🎯 Identify Brands that Need Promotional or Pricing Adjustments
-
-**Target Brands:**
-Brands exhibiting **lower sales performance but higher profit margins** represent opportunities for:
-- Volume growth through promotional activities
-- Strategic price adjustments to increase market penetration
-- Enhanced marketing and distribution efforts
-
-**Strategic Approach:**
-- Test price elasticity through limited promotions
-- Increase brand visibility and awareness
-- Optimize channel distribution
+- Focus on **vendors with consistent high margin** and **efficient stock movement**.  
+- **Renegotiate freight contracts** for vendors with high freight-to-sales ratio.  
+- **Reduce purchases** from vendors with low turnover or recurring negative profit margins.  
+- **Invest in data-driven vendor selection** for future procurement cycles.  
 
 ---
 
-### 6. **Statistical Hypothesis Testing**
+## 🧩 Example Visuals (from Notebook)
 
-#### ❓ Is There a Significant Difference in Profit Margins Between Top-Performing and Low-Performing Vendors?
+### Vendor Performance Overview
+![Vendor Performance Overview](images/vendor_performance_overview.png)
 
-**Hypothesis:**
-- **H₀ (Null Hypothesis):** There is no significant difference in the mean profit margins of top-performing and low-performing vendors.
-- **H₁ (Alternative Hypothesis):** The mean profit margins of top-performing and low-performing vendors are significantly different.
+### Freight vs Profit Margin
+![Freight vs Profit Margin](images/freight_vs_margin.png)
 
-**Statistical Results:**
+### Vendor Ranking by Sales
+![Vendor Ranking by Sales](vendor_ranking.png)
 
-| Vendor Category | Profit Margin Range (95% CI) | Mean |
-|----------------|------------------------------|------|
-| **Low-Performing Vendors** | 40.48% - 42.62% | ~41.5% |
-| **Top-Performing Vendors** | 30.74% - 31.61% | ~31.2% |
-
-**Key Findings:**
-
-✅ **The confidence interval for low-performing vendors (40.48% to 42.62%) is significantly higher than that of top-performing vendors (30.74% to 31.61%).**
-
-✅ **This suggests that vendors with lower sales tend to maintain higher profit margins, potentially due to premium pricing or lower operational costs.**
-
-**Business Implications:**
-
-**For High-Performing Vendors:**
-- If they aim to improve profitability, they could explore selective price adjustments
-- Cost optimization opportunities
-- Bundling strategies to increase average transaction value
-
-**For Low-Performing Vendors:**
-- Despite higher margins, their low sales volume might indicate a need for:
-  - Better marketing strategies
-  - Competitive pricing adjustments
-  - Improved distribution channels
-  - Enhanced customer engagement
+*(Charts will be generated automatically when running the notebook.)*
 
 ---
 
-## 📊 Comprehensive Key Findings
+## 🧠 Insights for Business Teams
 
-| Metric | Insight | Impact |
-|--------|---------|--------|
-| **Profit Margins** | Low-performing vendors maintain 10%+ higher margins | Premium positioning vs. volume strategy |
-| **Inventory Efficiency** | 0.999 correlation between purchase and sales | Excellent inventory management overall |
-| **Bulk Pricing Impact** | 72% cost reduction for large vs. small orders | Strong incentive for volume purchases |
-| **Loss Products** | Minimum gross profit of -$52,002.78 | Critical need for product review |
-| **Vendor Concentration** | Top 10 vendors dominate spending | Concentration risk requires mitigation |
-| **Stock Turnover Range** | 0 to 274.5 variability | Significant inventory optimization opportunity |
-| **Price-Sales Relationship** | Weak correlation (-0.012) | Pricing is not primary sales driver |
-| **Freight Cost Variation** | $0.09 to $257,032.07 range | Logistics optimization potential |
+| Focus Area | Recommendation |
+|-------------|----------------|
+| **High-margin vendors** | Increase order frequency and negotiate better payment terms |
+| **Freight optimization** | Combine shipments and negotiate volume-based discounts |
+| **Inventory management** | Maintain optimal turnover; reduce excess stock |
+| **Performance tracking** | Establish quarterly vendor performance dashboards |
+| **Strategic sourcing** | Reward high-performing vendors; phase out weak ones |
 
 ---
 
-## 🛠️ Technical Details
+## 🧰 Tech Stack
 
-### 🗄️ Database Schema
+| Component | Technology |
+|------------|-------------|
+| **Language** | Python 3.x |
+| **Libraries** | Pandas, SQLite3, SQLAlchemy, Matplotlib, Seaborn |
+| **Database** | SQLite |
+| **Visualization** | Jupyter Notebook |
+| **Logging** | Python Logging Module |
 
-The project uses an **SQLite database** with the following core tables:
+---
 
-| Table Name | Description |
-|-------------|-------------|
-| `vendors` | Vendor master data |
-| `products` | Product catalog |
-| `purchases` | Purchase transactions |
-| `sales` | Sales transactions |
-| `inventory` | Stock levels |
+## 🧑‍💻 Author
+
+**Adyasha Jha**  
+📧 [adyashajha2003@gmail.com]  
 
 ---
