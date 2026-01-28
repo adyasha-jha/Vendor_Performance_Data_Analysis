@@ -124,3 +124,15 @@ This repository delivers an **end-to-end pipeline** for vendor performance analy
 - Clear, actionable business insights  
 
 Use this project to **monitor vendor efficiency**, **optimize procurement**, and **improve cost management** across your organization.
+
+---
+
+## 🛡️ License
+
+This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and share this project with proper attribution.
+
+## 🌟 About Me
+
+Hi there! 👋 I’m Adyasha Jha, an aspiring Data Analyst curious about data, patterns, and problem-solving.
+Currently learning, experimenting, and building projects to turn data into impactful stories 🚀
+
