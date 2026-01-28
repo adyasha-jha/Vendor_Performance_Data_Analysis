@@ -4,12 +4,6 @@
 
 This project focuses on evaluating **vendor performance** using purchase, sales, and freight data.  
 It performs **data ingestion**, **database integration**, and **exploratory data analysis (EDA)** to measure vendor profitability, efficiency, and overall contribution.
-
-The analysis aims to:
-- Identify top-performing and underperforming vendors  
-- Analyze profit margins, freight impact, and stock efficiency  
-- Support data-driven procurement and vendor management decisions  
-
 ---
 
 ## 📂 Dataset
@@ -35,8 +29,6 @@ Please download the dataset from the above link and place all CSV files inside t
 ---
 
 ## 🔍 Main Findings & Results
-
-> Extracted from the notebook **Vendor_Perfomance_Analysis.ipynb**
 
 ### 🏆 Top Performing Vendors
 
@@ -91,18 +83,6 @@ Please download the dataset from the above link and place all CSV files inside t
 
 ---
 
-## 🧠 Insights for Business Teams
-
-| Focus Area | Recommendation |
-|-------------|----------------|
-| **High-margin vendors** | Increase order frequency and negotiate better payment terms |
-| **Freight optimization** | Combine shipments and negotiate volume-based discounts |
-| **Inventory management** | Maintain optimal turnover; reduce excess stock |
-| **Performance tracking** | Establish quarterly vendor performance dashboards |
-| **Strategic sourcing** | Reward high-performing vendors; phase out weak ones |
-
----
-
 ## 🧰 Tech Stack
 
 | Component | Technology |
@@ -113,18 +93,27 @@ Please download the dataset from the above link and place all CSV files inside t
 | **Visualization** | Jupyter Notebook |
 | **Logging** | Python Logging Module |
 
+---
 
-## 🧾 Summary
-
-This repository delivers an **end-to-end pipeline** for vendor performance analytics, including:
-
-- Data ingestion from raw CSVs  
-- Automated summary generation via SQL queries  
-- In-depth EDA and visualization in Jupyter  
-- Clear, actionable business insights  
-
-Use this project to **monitor vendor efficiency**, **optimize procurement**, and **improve cost management** across your organization.
-
+## 📂 Repository Structure
+```
+data-warehouse-project/
+│
+├── docs/                                   # Project documentation and architecture details
+│   ├── Correlation_Heatmap.png             # Visualizes relationships between sales, purchases, and profitability metrics.
+│   ├── bulk_purchase_vs_unit_price.png     # Shows how unit price decreases with larger order sizes.
+│   ├── vendors_ranking(Sales&Brand).png    # Displays the highest-selling brands by total sales and
+│                                             Highlights vendors contributing the highest sales revenue.
+│
+├── scripts/                                # Pthon and SQL scripts for cleaning, tranformation of data and analysis
+│   ├──  ingestion_db.py                    # Ingests raw CSV data into a SQLite database.
+│   ├──  get_vendor_summary.py              # Creates a vendor performance summary with key metrics.
+│   ├──  Exploratory_Data_Analysis.ipnyb    # Explores and visualizes raw data to understand patterns and quality.
+│   ├──  Vendor_Performance_Analysis.ipnyb  # Analyzes vendor performance to derive business insights.
+│
+├── README.md                               # Project overview and instructions
+├── LICENSE                                 # License information for the repository
+```
 ---
 
 ## 🛡️ License
