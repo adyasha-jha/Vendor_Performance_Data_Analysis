@@ -128,4 +128,5 @@ Currently learning, experimenting, and building projects to turn data into impac
 ## ☕ Stay Connected
 
 Let's stay in touch! Feel free to connect with me on the following platform:
+
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/adyasha-jha/)
