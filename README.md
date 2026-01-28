@@ -79,13 +79,13 @@ Please download the dataset from the above link and place all CSV files inside t
 ## 🧩 Example Visuals (from Notebook)
 
 ### Vendor Performance Overview
-![Vendor Performance Overview](Correlation_Heatmap.png)
+![Vendor Performance Overview](docsCorrelation_Heatmap.png)
 
 ### Impact of Bulk Purchasing on Unit Price
-![Bulk Purchase Summary](bulk_purchase_vs_unit_price.png)
+![Bulk Purchase Summary](docs/bulk_purchase_vs_unit_price.png)
 
 ### Vendor Ranking by Sales
-![Vendor Ranking by Sales and Brands](vendors_ranking(Sales&Brand).png)
+![Vendor Ranking by Sales and Brands](docs/vendors_ranking(Sales&Brand).png)
 
 *(Charts will be generated automatically when running the notebook.)*
 
