@@ -79,7 +79,7 @@ Please download the dataset from the above link and place all CSV files inside t
 ## 🧩 Example Visuals (from Notebook)
 
 ### Vendor Performance Overview
-![Vendor Performance Overview](docsCorrelation_Heatmap.png)
+![Vendor Performance Overview](docs/Correlation_Heatmap.png)
 
 ### Impact of Bulk Purchasing on Unit Price
 ![Bulk Purchase Summary](docs/bulk_purchase_vs_unit_price.png)
